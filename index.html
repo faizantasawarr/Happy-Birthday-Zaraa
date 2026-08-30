@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Zara ✨ A Special Wish From Faizan</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600;700&family=Cinzel:wght@500;700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient Deep Emotional Background Layers -->
+  <div class="dreamy-vignette"></div>
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Audio Player & Floating Sound Control -->
+  <div class="music-controller" id="music-controller" title="Click to Toggle Music">
+    <div class="music-disc" id="music-disc">
+      <span class="disc-inner">🎵</span>
+    </div>
+    <div class="music-info">
+      <span class="song-title">Zara's Birthday Melody 🎶</span>
+      <span class="song-status" id="song-status">Playing</span>
+    </div>
+    <audio id="bg-audio" loop preload="auto">
+      <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <!-- Opening Envelope / Gift Modal (Starts Music & Experience) -->
+  <div class="modal-overlay" id="welcome-modal">
+    <div class="welcome-card">
+      <div class="envelope-glow"></div>
+      <div class="gift-icon-wrapper">
+        <span class="gift-pulse-ring"></span>
+        <span class="gift-box">💌</span>
+      </div>
+      <span class="tagline-badge">For Zara Raheem Akbar 🌟</span>
+      <h2 class="welcome-title">A Special Story For You</h2>
+      <p class="welcome-subtitle">Turn up your volume 🎧 and let the story unfold automatically...</p>
+      <button class="btn btn-primary" id="start-journey-btn">
+        <span>Open Your Birthday Wish ✨</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Fullscreen 2-Second Cinematic Blackout Screen -->
+  <div class="blackout-screen" id="blackout-screen">
+    <div class="blackout-content">
+      <div class="heartbeat-dot"></div>
+      <p class="blackout-whisper">In a world full of stars, you shine the brightest...</p>
+      <span class="blackout-sub">Zara Raheem Akbar 💖</span>
+    </div>
+  </div>
+
+  <!-- Main Multi-Scene Container -->
+  <main class="journey-container">
+
+    <!-- ==========================================================
+         SCENE 1: The Birthday Letter (Auto-plays for 10s)
+         ========================================================== -->
+    <section class="scene active-scene" id="scene-1">
+      <div class="scene-inner">
+        
+        <!-- Auto-progression Timer Indicator -->
+        <div class="auto-progress-container" id="auto-progress-bar-wrap">
+          <div class="auto-progress-bar" id="auto-progress-bar"></div>
+          <span class="auto-timer-text">The journey continues automatically in <strong id="timer-counter">20</strong>s ✨</span>
+        </div>
+
+        <div class="glass-card letter-card">
+          <div class="card-ornament top-ornament">
+            <span>✨ 🌸 💫 🌸 ✨</span>
+          </div>
+
+          <div class="letter-header">
+            <span class="date-badge">✨ 31st August 2004 ✨</span>
+            <h1 class="letter-title">Happy Birthday, Zara! 🌟</h1>
+          </div>
+
+          <div class="letter-body">
+            <div class="quote-highlight">
+              <p>
+                ✨ On 31st August 2004, a star fell from the sky, and somehow, the world became a little brighter because Zara Raheem Akbar was born. 🌟
+              </p>
+            </div>
+
+            <p class="letter-paragraph">
+              You’re one of those rare people who are kind to everyone, who carry a genuinely good heart, and who make the people around them feel valued. I’m honestly grateful that life gave me the chance to know you and call you my friend. <span class="heart-emoji">❤️</span>
+            </p>
+
+            <p class="letter-paragraph">
+              As we grow older, life doesn’t always get easier. There will be difficult days, unexpected challenges, and moments when everything feels a little too much. But no matter how tough life gets, stay strong, keep believing, and never lose the beautiful person you are.
+            </p>
+
+            <p class="letter-paragraph prayer-text">
+              And In Sha Allah, with time, we’ll figure things out, overcome the hard days, achieve what we dream of, and make our lives better. <span class="heart-emoji">🤍</span>
+            </p>
+
+            <p class="letter-paragraph">
+              I’m truly grateful to have you in my life, and I hope this new year of your life brings you happiness, peace, success, and countless beautiful memories.
+            </p>
+
+            <div class="letter-footer-wishes">
+              <p class="celebration-headline">
+                Happy Birthday to an amazing person. 🎂✨
+              </p>
+              <p class="dua-text">
+                May Allah always protect you, bless you, and give you everything your heart wishes for. Ameen. 🤲🏻❤️
+              </p>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <button class="btn btn-outline btn-sm" id="pause-timer-btn">⏸ Pause</button>
+            <button class="btn btn-primary btn-next" id="goto-scene-2-btn">
+              <span>Continue Right Now 🌹 →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SCENE 2: Floating Rose Gallery (Multiple Floating Frames)
+         ========================================================== -->
+    <section class="scene" id="scene-2">
+      <div class="scene-inner gallery-scene-inner">
+        <!-- Floating Rose Petals Container -->
+        <div class="petals-container" id="petals-container"></div>
+
+        <div class="scene-header">
+          <span class="scene-subtitle">Moments & Memories</span>
+          <h2 class="scene-title">The Star Who Lights Up Every Room ✨</h2>
+          <p class="scene-tagline">Floating through timeless memories of Zara Raheem Akbar 🌸</p>
+        </div>
+
+        <!-- Multiple 3D Floating Rose Photo Frames Gallery -->
+        <div class="floating-gallery-grid" id="floating-gallery">
+          
+          <!-- FRAME 1 (Featured Center Frame) -->
+          <div class="rose-frame-card frame-primary">
+            <div class="rose-wreath-decorations">
+              <div class="rose-cluster top-left">🌹🌸🌹</div>
+              <div class="rose-cluster top-center">🌸 🌹 🌸</div>
+              <div class="rose-cluster top-right">🌹🌸🌹</div>
+              <div class="rose-cluster mid-left">🌹<br>🌸</div>
+              <div class="rose-cluster mid-right">🌹<br>🌸</div>
+              <div class="rose-cluster bottom-left">🌹🌸🌹</div>
+              <div class="rose-cluster bottom-center">🌸 🌹 🌸</div>
+              <div class="rose-cluster bottom-right">🌹🌸🌹</div>
+            </div>
+            <div class="frame-glass">
+              <div class="photo-holder">
+                <img id="img-slot-1" src="images/photo1.jpeg" alt="Zara's Smile" />
+                <div class="photo-overlay-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <p class="caption-name">Zara’s Beautiful Smile 💖</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FRAME 2 (Top Floating Frame) -->
+          <div class="rose-frame-card frame-float-2">
+            <div class="rose-wreath-decorations">
+              <div class="rose-cluster top-left">🌸🌹</div>
+              <div class="rose-cluster top-right">🌹🌸</div>
+              <div class="rose-cluster bottom-left">🌹🌸</div>
+              <div class="rose-cluster bottom-right">🌸🌹</div>
+            </div>
+            <div class="frame-glass">
+              <div class="photo-holder">
+                <img id="img-slot-2" src="images/photo2.jpeg" alt="Zara" />
+                <div class="photo-overlay-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <p class="caption-name">Kindest Soul 🌟</p>
+                <p class="caption-date">Always Radiating Warmth</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FRAME 3 (Side Floating Frame) -->
+          <div class="rose-frame-card frame-float-3">
+            <div class="rose-wreath-decorations">
+              <div class="rose-cluster top-left">🌹🌸</div>
+              <div class="rose-cluster top-right">🌸🌹</div>
+              <div class="rose-cluster bottom-left">🌸🌹</div>
+              <div class="rose-cluster bottom-right">🌹🌸</div>
+            </div>
+            <div class="frame-glass">
+              <div class="photo-holder">
+                <img id="img-slot-3" src="images/photo3.jpeg" alt="Zara" />
+                <div class="photo-overlay-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <p class="caption-name">Endless Grace ✨</p>
+                <p class="caption-date">Rare & Truly Cherished</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FRAME 4 (Bottom Floating Frame) -->
+          <div class="rose-frame-card frame-float-4">
+            <div class="rose-wreath-decorations">
+              <div class="rose-cluster top-left">🌸🌹</div>
+              <div class="rose-cluster top-right">🌹🌸</div>
+              <div class="rose-cluster bottom-left">🌹🌸</div>
+              <div class="rose-cluster bottom-right">🌸🌹</div>
+            </div>
+            <div class="frame-glass">
+              <div class="photo-holder">
+                <img id="img-slot-4" src="images/photo4.jpeg" alt="Zara" />
+                <div class="photo-overlay-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <p class="caption-name">Stay Strong & Shine 🤍</p>
+                <p class="caption-date">A Bright Future Awaits</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card-action">
+          <button class="btn btn-outline" id="backto-scene-1-btn">← Back to Letter</button>
+          <button class="btn btn-primary btn-next" id="goto-scene-3-btn">
+            <span>Make a Birthday Wish 🎂 →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SCENE 3: Grand Celebration & Dedicated Signature by Faizan
+         ========================================================== -->
+    <section class="scene" id="scene-3">
+      <div class="scene-inner celebration-layout">
+        
+        <div class="scene-header">
+          <span class="scene-subtitle">A Grand Birthday Wish for Zara</span>
+          <h2 class="scene-title">Blow the Candle & Make a Wish! 🎂✨</h2>
+          <p class="celebration-prompt">Close your eyes, make your deepest wish, and tap the candle to blow it out!</p>
+        </div>
+
+        <!-- Interactive 3D Cake & Candle -->
+        <div class="cake-area" id="cake-area">
+          <div class="cake-container">
+            <div class="candle" id="candle">
+              <div class="flame" id="candle-flame"></div>
+              <div class="smoke" id="candle-smoke"></div>
+              <div class="wick"></div>
+              <div class="candle-body"></div>
+            </div>
+            <div class="cake-top-layer">
+              <div class="frosting">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="cherry-decor">🍓 💖 🍓</div>
+            </div>
+            <div class="cake-middle-layer"></div>
+            <div class="cake-bottom-layer"></div>
+            <div class="cake-plate"></div>
+          </div>
+
+          <div class="wish-status-badge" id="wish-status-badge">
+            <span>✨ Tap the flame to blow the candle! ✨</span>
+          </div>
+        </div>
+
+        <!-- Interactive Surprise Blessing Capsules -->
+        <div class="wishes-capsules-section">
+          <h3 class="capsules-heading">Birthday Surprises for Zara 💌</h3>
+          <p class="capsules-sub">Tap each card to reveal what makes you so special</p>
+          
+          <div class="capsules-grid">
+            
+            <div class="capsule-card" data-card="1">
+              <div class="card-front">
+                <span class="card-icon">🌟</span>
+                <span class="card-tag">Compliment</span>
+                <p>Zara’s Kind Heart</p>
+                <span class="tap-hint">Tap to reveal</span>
+              </div>
+              <div class="card-back">
+                <h4>Pure & Rare Soul 💖</h4>
+                <p>Your empathy and ability to treat everyone with genuine warmth make you truly one of a kind.</p>
+              </div>
+            </div>
+
+            <div class="capsule-card" data-card="2">
+              <div class="card-front">
+                <span class="card-icon">🤲🏻</span>
+                <span class="card-tag">Special Dua</span>
+                <p>Heartfelt Blessing</p>
+                <span class="tap-hint">Tap to reveal</span>
+              </div>
+              <div class="card-back">
+                <h4>May Allah Bless You 🤍</h4>
+                <p>May this year grant you ease, peace in your heart, good health, and success in everything you dream of. Ameen!</p>
+              </div>
+            </div>
+
+            <div class="capsule-card" data-card="3">
+              <div class="card-front">
+                <span class="card-icon">🌈</span>
+                <span class="card-tag">Strength</span>
+                <p>Belief & Hope</p>
+                <span class="tap-hint">Tap to reveal</span>
+              </div>
+              <div class="card-back">
+                <h4>Unstoppable You 💫</h4>
+                <p>Never lose faith in yourself. We'll overcome every hurdle, and the best days are yet to come!</p>
+              </div>
+            </div>
+
+            <div class="capsule-card" data-card="4">
+              <div class="card-front">
+                <span class="card-icon">🎁</span>
+                <span class="card-tag">Friendship</span>
+                <p>A True Promise</p>
+                <span class="tap-hint">Tap to reveal</span>
+              </div>
+              <div class="card-back">
+                <h4>Always in Your Corner 🤝</h4>
+                <p>Through every chapter, storm or celebration, you will always have a sincere friend cheering you on.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SPECIAL DEDICATION FROM FAIZAN -->
+        <div class="signature-dedication-card">
+          <div class="signature-seal">
+            <span class="seal-icon">💝</span>
+          </div>
+          <div class="signature-text-wrap">
+            <span class="signature-intro">With All My Respect, Prayers & Sincere Affection</span>
+            <h3 class="signature-title">Prepared By Faizan with Love ❤️✨</h3>
+            <p class="signature-quote">"May your smile never fade, and may your life be filled with endless light."</p>
+            <div class="signature-date">Dedicated on 31st August 2004 — Forever Celebrated 🌟</div>
+          </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="scene-navigation-footer">
+          <button class="btn btn-outline" id="backto-scene-2-btn">← Back to Photos</button>
+          <button class="btn btn-primary" id="celebrate-again-btn">🎉 Burst Confetti & Sparkles!</button>
+          <button class="btn btn-secondary" id="restart-journey-btn">🔄 Replay From Start</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
